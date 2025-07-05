@@ -1,0 +1,110 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import { CheckCircle, ArrowRight } from "lucide-react";
+
+export default function Home() {
+  return (
+    <div className="max-w-6xl mx-auto px-6 py-12 space-y-12">
+      {/* Hero Section */}
+      <section className="text-center space-y-6">
+        <h1 className="text-4xl font-bold leading-tight">
+          Crestory Capital
+        </h1>
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          Strategic Business Brokerage, M&A Advisory, and IPO Incubation — Empowering Companies to Reach Their Peak Value
+        </p>
+        <Button size="lg" className="mt-4">
+          Get in Touch <ArrowRight className="ml-2 w-4 h-4" />
+        </Button>
+      </section>
+
+      <Separator />
+
+      {/* Services Section */}
+      <section className="grid md:grid-cols-2 gap-6">
+        {[
+          {
+            title: "Business Sales & Valuation",
+            desc: "Confidential, full-service brokerage to help you sell your business for optimal value.",
+          },
+          {
+            title: "M&A Advisory",
+            desc: "Buy-side and sell-side support, due diligence, negotiations, and deal structuring.",
+          },
+          {
+            title: "Commercial Financing",
+            desc: "Access SBA loans, growth capital, and strategic financial structuring.",
+          },
+          {
+            title: "IPO Incubation",
+            desc: "Guiding qualified businesses through the full NASDAQ IPO lifecycle — from strategy to listing.",
+          },
+        ].map((service, idx) => (
+          <Card key={idx} className="hover:shadow-lg transition">
+            <CardContent className="p-6">
+              <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
+              <p className="text-muted-foreground">{service.desc}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </section>
+
+      <Separator />
+
+      {/* About Section */}
+      <section className="space-y-6">
+        <h2 className="text-2xl font-bold">About Crestory Capital</h2>
+        <p className="text-muted-foreground max-w-3xl">
+          With over 20 years of leadership experience in the U.S. business landscape, Crestory Capital
+          offers integrated solutions for small to mid-sized companies seeking strategic exits, growth capital,
+          and public listings. Our founder Daniel Hu is a licensed business broker and loan officer,
+          combining hands-on operational insight with capital market expertise.
+        </p>
+      </section>
+
+      <Separator />
+
+      {/* Call to Action */}
+      <section className="text-center space-y-4">
+        <h3 className="text-xl font-semibold">Ready to Elevate Your Business Story?</h3>
+        <p className="text-muted-foreground max-w-xl mx-auto">
+          Whether you're preparing to sell, raise capital, or go public — we’ll help you structure your next chapter.
+        </p>
+        <Button size="lg">
+          Schedule a Consultation <ArrowRight className="ml-2 w-4 h-4" />
+        </Button>
+      </section>
+
+      <Separator />
+
+      {/* Contact Section */}
+      <section className="space-y-6" id="contact">
+        <h2 className="text-2xl font-bold text-center">Contact Us</h2>
+        <form className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
+          <input
+            type="text"
+            placeholder="Your Name"
+            className="border rounded p-3"
+            required
+          />
+          <input
+            type="email"
+            placeholder="Your Email"
+            className="border rounded p-3"
+            required
+          />
+          <textarea
+            placeholder="Your Message"
+            className="border rounded p-3 md:col-span-2"
+            rows={4}
+            required
+          />
+          <Button className="md:col-span-2" type="submit">
+            Send Message
+          </Button>
+        </form>
+      </section>
+    </div>
+  );
+}
